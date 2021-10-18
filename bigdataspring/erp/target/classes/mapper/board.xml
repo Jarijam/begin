@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="erp.board">
+	<insert id="insert" parameterType="board">
+		insert into board values(board_seq.nextval,#{id},#{title},#{content},sysdate,#{category},0)
+	</insert>
+	<select id="list" resultType="board">
+		select * from board 
+	</select>
+	<select id="category" parameterType="String" resultType="board"> <!-- ajax위해 필요한 사전작업 -->
+		select * from board where category=#{category}
+	</select>
+</mapper>
