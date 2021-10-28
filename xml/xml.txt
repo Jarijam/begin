@@ -1,0 +1,19 @@
+1. DomParser
+	org.w3c.dom 라이브러리
+	- DocumenBuilderFactory - parserFactory역할
+		: DocumentBuilder를 생성해주는 객체
+	- DocumentBuilder - parser
+		: xml형식의 문서를 자바객체로 변환하는 역할의 객체
+		
+2. API
+	1) Document - xml 문서를 자바에서 쓸 수 있도록 변환해놓은 객체
+	2) Node, Element
+	3) NodeList
+		- Node를 모아 놓은 것
+		- Node의 목록
+		
+3. xml문서의 탐색
+	1) root엘리먼트 구하기
+	2) root엘리먼트 하위 엘리먼트 목록을 구하기
+	3) 각 엘리먼트를 탐색하면서 엘리먼트가 갖고 있는 child노드를 검색
+	4)
