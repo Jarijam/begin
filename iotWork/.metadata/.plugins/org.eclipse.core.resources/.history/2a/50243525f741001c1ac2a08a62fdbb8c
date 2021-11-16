@@ -1,0 +1,34 @@
+package socket;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.InetAddress;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+//클라이언트와 통신하기 위한 서버
+//=> 클라이언트가 접속하면 클라이언트와 통신할 수 있는 IO스트림 객체를 구해서 클라이언트에게 메시지를 보낸다.
+//=> 클라이언트가 서버의 메시지를 받고 보내온 메시지를 서버 콘솔에 출력하는 작업도 실행
+// 클라이언트와 IO(input -> DataInputStream, output -> DataOutputStream 활용)
+
+public class MyNetServer02 {
+	public static void main(String[] args) {
+		Socket client = null;
+		InputStream socketIn = null; //클라이언트가 보내오는 데이터를 읽기 위한 스트림
+		OutputStream socketOun = null; //클라이언트에게 데이터를 보내기 위한 스트림
+		try {
+			ServerSocket server = new ServerSocket(12345);
+			System.out.println("서버준비완료....클라이언트의 접속들 기다립니다.");
+			//여러 클라이언트에게 서비스를 제공하기 위해서 무한루프 실행
+			while(true) {
+				client = server.accept();
+				InetAddress clientIp = client.getInetAddress();
+				System.out.println("접속한 클라이언트 : "+clientIp.getHostAddress()); //접속한 클라이언트의 ip를 출력
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+}

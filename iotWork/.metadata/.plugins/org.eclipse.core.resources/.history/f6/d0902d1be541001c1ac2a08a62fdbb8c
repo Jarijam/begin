@@ -1,0 +1,8 @@
+package basic;
+
+class URLTest02 {
+	public static void main(String[] args) {
+		
+	}	
+
+}
